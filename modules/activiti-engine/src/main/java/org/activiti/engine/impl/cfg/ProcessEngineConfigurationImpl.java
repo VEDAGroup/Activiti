@@ -516,6 +516,7 @@ public abstract class ProcessEngineConfigurationImpl extends ProcessEngineConfig
     databaseTypeMappings.setProperty("DB2/SUN64","db2");
     databaseTypeMappings.setProperty("DB2/PTX","db2");
     databaseTypeMappings.setProperty("DB2/2","db2");
+    databaseTypeMappings.setProperty("DB2 UDB for AS/400", "db2i");
     return databaseTypeMappings;
   }
 
