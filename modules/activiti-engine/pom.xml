@@ -694,6 +694,24 @@
         </dependency>
       </dependencies>
     </profile>
+	
+    <profile>
+      <id>db2i</id>
+      <activation>
+        <property>
+          <name>database</name>
+          <value>db2i</value>
+        </property>
+      </activation>
+      <dependencies>
+        <dependency>
+          <groupId>net.veda.ibm.db2</groupId>
+          <artifactId>jt400</artifactId>
+		  <version>7.4</version>
+          <scope>test</scope>
+        </dependency>
+      </dependencies>
+    </profile>	
 
     <profile>
       <id>mssql</id>
