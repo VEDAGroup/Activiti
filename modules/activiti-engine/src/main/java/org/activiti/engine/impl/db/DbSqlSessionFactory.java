@@ -93,8 +93,14 @@ public class DbSqlSessionFactory implements SessionFactory {
     databaseSpecificLimitAfterStatements.put("db2", ")RES ) SUB WHERE SUB.rnk >= #{firstRow} AND SUB.rnk < #{lastRow}");
     databaseSpecificLimitBetweenStatements.put("db2", ", row_number() over (ORDER BY ${orderBy}) rnk FROM ( select distinct RES.* ");
     databaseSpecificOrderByStatements.put("db2", "");
-    addDatabaseSpecificStatement("db2", "selectExclusiveJobsToExecute", "selectExclusiveJobsToExecute_integerBoolean");
-    
+
+    // db2i
+    databaseSpecificLimitBeforeStatements.put("db2i", "SELECT SUB.* FROM (");
+    databaseSpecificLimitAfterStatements.put("db2i", ")RES ) SUB WHERE SUB.rnk >= #{firstRow} AND SUB.rnk < #{lastRow}");
+    databaseSpecificLimitBetweenStatements.put("db2i", ", row_number() over (ORDER BY ${orderBy}) rnk FROM ( select distinct RES.* ");
+    databaseSpecificOrderByStatements.put("db2i", "");
+    addDatabaseSpecificStatement("db2i", "selectExclusiveJobsToExecute", "selectExclusiveJobsToExecute_integerBoolean");
+
     // mssql
     databaseSpecificLimitBeforeStatements.put("mssql", "SELECT SUB.* FROM (");
     databaseSpecificLimitAfterStatements.put("mssql", ")RES ) SUB WHERE SUB.rnk >= #{firstRow} AND SUB.rnk < #{lastRow}");
