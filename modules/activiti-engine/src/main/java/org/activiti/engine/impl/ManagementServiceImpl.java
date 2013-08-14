@@ -14,6 +14,7 @@ package org.activiti.engine.impl;
 
 import java.sql.Connection;
 import java.util.Map;
+import java.util.logging.Logger;
 
 import org.activiti.engine.ManagementService;
 import org.activiti.engine.impl.cmd.DeleteJobCmd;
@@ -40,6 +41,8 @@ import org.activiti.engine.runtime.JobQuery;
  * @author Saeid Mizaei
  */
 public class ManagementServiceImpl extends ServiceImpl implements ManagementService {
+
+  private static Logger log = Logger.getLogger(ManagementServiceImpl.class.getName());
 
   public Map<String, Long> getTableCount() {
     return commandExecutor.execute(new GetTableCountCmd());
@@ -86,6 +89,12 @@ public class ManagementServiceImpl extends ServiceImpl implements ManagementServ
       public String execute(CommandContext commandContext) {
         DbSqlSessionFactory dbSqlSessionFactory = (DbSqlSessionFactory) commandContext.getSessionFactories().get(DbSqlSession.class);
         DbSqlSession dbSqlSession = new DbSqlSession(dbSqlSessionFactory, connection, catalog, schema);
+
+        if(dbSqlSessionFactory.getDatabaseType().equals("db2i")){
+          log.info("Setting statement separator to \"" + DbSqlSession.ALTERNATIVE_STATEMENT_SEPARATOR + "\"");
+          dbSqlSession.setStatementSeparator(DbSqlSession.ALTERNATIVE_STATEMENT_SEPARATOR);
+        }
+
         commandContext.getSessions().put(DbSqlSession.class, dbSqlSession);
         return dbSqlSession.dbSchemaUpdate();
       }
