@@ -226,7 +226,7 @@ public class TableDataManager extends AbstractManager {
         tableName = tableName.toLowerCase();
       }
 
-      ResultSet resultSet = metaData.getColumns(null, null, tableName, null);
+      ResultSet resultSet = metaData.getColumns(null, getDbSqlSession().getDbSqlSessionFactory().getDatabaseSchema(), tableName, null);
       while(resultSet.next()) {
         String name = resultSet.getString("COLUMN_NAME").toUpperCase();
         String type = resultSet.getString("TYPE_NAME").toUpperCase();
