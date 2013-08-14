@@ -89,6 +89,15 @@ public class DbSqlSession implements Session {
   protected String connectionMetadataDefaultCatalog = null;
   protected String connectionMetadataDefaultSchema = null;
 
+  public static final String DEFAULT_STATEMENT_SEPARATOR = ";";
+  public static final String ALTERNATIVE_STATEMENT_SEPARATOR = "@";
+
+  public void setStatementSeparator(String statementSeparator) {
+    this.statementSeparator = statementSeparator;
+  }
+
+  protected String statementSeparator = DEFAULT_STATEMENT_SEPARATOR;
+
   public DbSqlSession(DbSqlSessionFactory dbSqlSessionFactory) {
     this.dbSqlSessionFactory = dbSqlSessionFactory;
     this.sqlSession = dbSqlSessionFactory
@@ -1006,7 +1015,7 @@ public class DbSqlSession implements Session {
           
         } else if (line.length()>0) {
           
-          if (line.endsWith(";")) {
+          if (line.endsWith(statementSeparator)) {
             sqlStatement = addSqlStatementPiece(sqlStatement, line.substring(0, line.length()-1));
             Statement jdbcStatement = connection.createStatement();
             try {
