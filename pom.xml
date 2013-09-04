@@ -771,13 +771,13 @@
   
   <distributionManagement>
     <snapshotRepository>
-      <id>alfresco.snapshot.repo</id>
-      <url>https://maven.alfresco.com/nexus/content/repositories/activiti-snapshots/</url>
+      <id>veda.activiti.snapshot.repo</id>
+      <url>http://activiti-intern.veda.de:8081/nexus/content/repositories/snapshots/</url>
       <uniqueVersion>false</uniqueVersion>
     </snapshotRepository>
     <repository>
-      <id>alfresco.release.repo</id>
-      <url>https://artifacts.alfresco.com/nexus/content/repositories/activiti-releases/</url>
+      <id>veda.activiti.release.repo</id>
+      <url>http://activiti-intern.veda.de:8081/nexus/content/repositories/releases</url>
     </repository>
   </distributionManagement>
 
@@ -870,8 +870,8 @@
     <url>http://bamboo.ci.codehaus.org/browse/ACT</url>
   </ciManagement>
   <scm>
-    <connection>scm:git:https://github.com/Activiti/Activiti.git</connection>
-    <developerConnection>scm:git:https://github.com/Activiti/Activiti.git</developerConnection>
+    <connection>scm:git:https://github.com/VEDAGroup/Activiti.git</connection>
+    <developerConnection>scm:git:https://github.com/VEDAGroup/Activiti.git</developerConnection>
   </scm>
 
 </project>
