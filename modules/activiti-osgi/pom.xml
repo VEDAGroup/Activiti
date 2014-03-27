@@ -10,7 +10,7 @@
     <groupId>org.activiti</groupId>
     <artifactId>activiti-root</artifactId>
     <relativePath>../..</relativePath>
-    <version>5.11.3-veda</version>
+    <version>5.11.4-veda-SNAPSHOT</version>
   </parent>
 
   <build>
