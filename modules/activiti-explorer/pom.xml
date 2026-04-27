@@ -164,12 +164,4 @@
       </build>
     </profile>
   </profiles>
-
-  <repositories>
-    <repository>
-      <id>buzzmedia</id>
-      <url>http://maven.thebuzzmedia.com</url> <!-- ImageScalr -->
-    </repository>
-  </repositories>
-
 </project>
