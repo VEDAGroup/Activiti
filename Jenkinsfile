@@ -24,7 +24,7 @@ pipeline {
 
     tools {
         maven 'Maven 3.9.14'
-        jdk 'Azul Java 17 ( LTS) JDK + Java FX 17'
+        jdk 'Azul Java 8 ( LTS) JDK + Java FX 8.56.0.23'
     }
 
     stages {
