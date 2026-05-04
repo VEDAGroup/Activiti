@@ -43,29 +43,6 @@
     </dependency>
   </dependencies>
 
-  <repositories>
-    <repository>
-      <id>activiti</id>
-      <name>Activiti</name>
-      <url>https://maven.alfresco.com/nexus/content/repositories/activiti/</url>
-    </repository>
-  </repositories>
-
-  <pluginRepositories>
-    <pluginRepository>
-      <id>maven2.java.net</id>
-      <name>Java.net Repository for Maven 2</name>
-      <url>http://download.java.net/maven/2/</url>
-    </pluginRepository>
-    <pluginRepository>
-      <id>sonatype-snapshot-repo</id>
-      <snapshots>
-        <enabled>true</enabled>
-      </snapshots>
-      <url>https://repository.sonatype.org/content/repositories/apache-snapshots</url>
-    </pluginRepository>
-  </pluginRepositories>
-
   <build>
     <plugins>
       <plugin>
