@@ -5,7 +5,6 @@ pipeline {
 
     Maven Goals: clean verify -U -Dorg.slf4j.simpleLogger.defaultLogLevel=warn
     Tools: Maven 3.9.14, Azul Java 8 ( LTS) JDK + Java FX 8.56.0.23
-    Gesperrte Ressourcen: AllVariants_ITest_Trunk
 
     Hinweise zu den mvn Parametern:
     -U --update-snapshots Forces a check for updated releases and snapshots on remote repositories
