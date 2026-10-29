@@ -17,7 +17,6 @@ import javax.sql.DataSource;
 
 import org.activiti.engine.RuntimeService;
 import org.activiti.engine.TaskService;
-import org.springframework.beans.factory.annotation.Required;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -59,17 +58,14 @@ public class UserBean {
   
   // getters and setters //////////////////////////////////////////////////////
   
-  @Required
   public void setRuntimeService(RuntimeService runtimeService) {
     this.runtimeService = runtimeService;
   }
   
-  @Required
   public void setTaskService(TaskService taskService) {
     this.taskService = taskService;
   }
 
-  @Required
   public void setDataSource(DataSource dataSource) {
     this.dataSource = dataSource;
   }

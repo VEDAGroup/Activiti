@@ -8,7 +8,7 @@
     <groupId>org.activiti</groupId>
     <artifactId>activiti-root</artifactId>
     <relativePath>../..</relativePath>
-    <version>5.11.4-veda-SNAPSHOT</version>
+    <version>FB-Spring7-5.11.4-veda-SNAPSHOT</version>
   </parent>
 
   <dependencies>
@@ -48,11 +48,6 @@
       <scope>provided</scope>
     </dependency>
     <dependency>
-      <groupId>javax.persistence</groupId>
-      <artifactId>persistence-api</artifactId>
-      <scope>provided</scope>
-    </dependency>
-    <dependency>
       <groupId>org.codehaus.groovy</groupId>
       <artifactId>groovy</artifactId>
       <scope>provided</scope>
@@ -74,11 +69,6 @@
     <dependency>
       <groupId>org.subethamail</groupId>
       <artifactId>subethasmtp-wiser</artifactId>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.apache.openjpa</groupId>
-      <artifactId>openjpa</artifactId>
       <scope>test</scope>
     </dependency>
     <dependency>

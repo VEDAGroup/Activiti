@@ -7,9 +7,11 @@
   <artifactId>activiti-root</artifactId>
 
   <packaging>pom</packaging>
-  <version>5.11.4-veda-SNAPSHOT</version>
+  <version>FB-Spring7-5.11.4-veda-SNAPSHOT</version>
   <properties>
-    <spring.framework.version>3.1.2.RELEASE</spring.framework.version>
+    <spring.framework.version>7.0.9</spring.framework.version>
+    <!-- Java 17: Groovy and MyBatis/OGNL access java.lang and java.util via reflection -->
+    <argLine>--add-opens java.base/java.lang=ALL-UNNAMED --add-opens java.base/java.util=ALL-UNNAMED</argLine>
     <mule.version>3.3.0</mule.version>
     <cxf.version>2.6.1</cxf.version>
     <restlet.version>2.0.15</restlet.version>
@@ -632,6 +634,12 @@
       <modules>
         <module>modules/activiti-cxf</module>
         <module>modules/activiti-mule</module>
+      </modules>
+    </profile>
+    <profile>
+      <id>spring7</id>
+      <modules>
+        <module>modules/activiti-spring</module>
       </modules>
     </profile>
     <profile>

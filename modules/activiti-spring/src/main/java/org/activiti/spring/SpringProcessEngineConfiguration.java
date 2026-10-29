@@ -29,7 +29,6 @@ import org.activiti.engine.impl.cfg.StandaloneProcessEngineConfiguration;
 import org.activiti.engine.impl.interceptor.CommandContextInterceptor;
 import org.activiti.engine.impl.interceptor.CommandInterceptor;
 import org.activiti.engine.impl.interceptor.LogInterceptor;
-import org.activiti.engine.impl.variable.EntityManagerSession;
 import org.activiti.engine.repository.DeploymentBuilder;
 import org.springframework.core.io.ByteArrayResource;
 import org.springframework.core.io.ContextResource;
@@ -95,11 +94,11 @@ public class SpringProcessEngineConfiguration extends ProcessEngineConfiguration
   
   @Override
   protected void initJpa() {
-    super.initJpa();
+    // Spring 7 supports jakarta.persistence only, the JPA support of this engine uses javax.persistence
     if (jpaEntityManagerFactory != null) {
-      sessionFactories.put(EntityManagerSession.class, 
-              new SpringEntityManagerSessionFactory(jpaEntityManagerFactory, jpaHandleTransaction, jpaCloseEntityManager));
+      throw new ActivitiException("jpaEntityManagerFactory is not supported by SpringProcessEngineConfiguration with Spring 7");
     }
+    super.initJpa();
   }
 
   protected void autoDeployResources(ProcessEngine processEngine) {

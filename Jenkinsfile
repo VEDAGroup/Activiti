@@ -3,8 +3,8 @@ pipeline {
 /*
     Jenkinsfile für das Projekt "Activiti"
 
-    Maven Goals: clean verify -U -Dorg.slf4j.simpleLogger.defaultLogLevel=warn
-    Tools: Maven 3.9.14, Azul Java 8 ( LTS) JDK + Java FX 8.56.0.23
+    Maven Goals: clean verify -U -Pspring7 -Dorg.slf4j.simpleLogger.defaultLogLevel=warn
+    Tools: Maven 3.9.14, Azul Java 17 ( LTS) JDK + Java FX 17
 
     Hinweise zu den mvn Parametern:
     -U --update-snapshots Forces a check for updated releases and snapshots on remote repositories
@@ -23,7 +23,7 @@ pipeline {
 
     tools {
         maven 'Maven 3.9.14'
-        jdk 'Azul Java 8 ( LTS) JDK + Java FX 8.56.0.23'
+        jdk 'Azul Java 17 ( LTS) JDK + Java FX 17'
     }
 
     stages {
@@ -32,7 +32,7 @@ pipeline {
             steps {
 
                 withMaven {
-                    bat "mvn clean verify -U -Dorg.slf4j.simpleLogger.defaultLogLevel=warn"
+                    bat "mvn clean verify -U -Pspring7 -Dorg.slf4j.simpleLogger.defaultLogLevel=warn"
                 }
             }
 
