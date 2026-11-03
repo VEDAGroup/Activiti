@@ -571,8 +571,24 @@
               <artifactId>maven-release-plugin</artifactId>
               <version>3.3.1</version>
               <configuration>
-                  <releaseProfiles>deploy</releaseProfiles>
+                  <!-- dieselben Module wie der CI-Job (engine + spring) in den geforkten Builds.
+                       Das Release selbst muss ebenfalls mit -Pspring7 gestartet werden,
+                       sonst wird die Version von activiti-spring nicht umgestellt:
+                       mvn -Pspring7 release:prepare release:perform -->
+                  <arguments>-Pspring7</arguments>
+                  <releaseProfiles>release</releaseProfiles>
+                  <!-- Jenkins-Agent hat kein git.exe -->
+                  <providerImplementations>
+                      <git>jgit</git>
+                  </providerImplementations>
               </configuration>
+              <dependencies>
+                  <dependency>
+                      <groupId>org.apache.maven.scm</groupId>
+                      <artifactId>maven-scm-provider-jgit</artifactId>
+                      <version>2.1.0</version>
+                  </dependency>
+              </dependencies>
           </plugin>
       </plugins>
     </pluginManagement>
@@ -641,6 +657,29 @@
       <modules>
         <module>modules/activiti-spring</module>
       </modules>
+    </profile>
+    <profile>
+      <!-- nur in release:perform aktiv; die Tests laufen vorher in release:prepare
+           (JobExecutorTest schlägt sporadisch fehl und darf nicht nach dem Tag abbrechen) -->
+      <id>release</id>
+      <properties>
+        <skipTests>true</skipTests>
+      </properties>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-source-plugin</artifactId>
+            <executions>
+              <execution>
+                <goals>
+                  <goal>jar</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
     </profile>
     <profile>
       <id>checkspring</id>
