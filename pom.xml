@@ -7,7 +7,7 @@
   <artifactId>activiti-root</artifactId>
 
   <packaging>pom</packaging>
-  <version>FB-Spring7-5.11.4-veda-SNAPSHOT</version>
+  <version>FB-Spring7-5.11.4-veda</version>
   <properties>
     <spring.framework.version>7.0.9</spring.framework.version>
     <!-- Java 17: Groovy and MyBatis/OGNL access java.lang and java.util via reflection -->
@@ -883,7 +883,7 @@
   <scm>
     <connection>scm:git:https://github.com/VEDAGroup/Activiti.git</connection>
     <developerConnection>scm:git:https://github.com/VEDAGroup/Activiti.git</developerConnection>
-    <tag>HEAD</tag>
+    <tag>activiti-root-FB-Spring7-5.11.4-veda</tag>
   </scm>
 
 </project>
